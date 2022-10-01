@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Muse">
+<meta name="keywords" content="Muse">
+<meta name="author" content="Muse">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Stripes</title>
+<link href="assets/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<!-- Muse CSS -->
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/vendor/flatpickr/dist/flatpickr.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/vendor/plyr/dist/plyr.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/vendor/choices-master/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/vendor/dropzone/dist/min/dropzone.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/vendor/simplebar/dist/simplebar.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/vendor/prism/prism.css" rel="stylesheet" type="text/css" media="all">
+<link href="assets/css/theme.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <!-- Navbar -->
+    <header class="muse-header py-sm-2" style="background-color: transparent;">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <a class="navbar-brand" href="#">
+                    <svg viewBox="0 0 60 25" xmlns="http://www.w3.org/2000/svg" width="60" height="25" class="UserLogo variant-- "><title>Stripe logo</title><path fill="var(--userLogoColor, #FFFFFF)" d="M59.64 14.28h-8.06c.19 1.93 1.6 2.55 3.2 2.55 1.64 0 2.96-.37 4.05-.95v3.32a8.33 8.33 0 0 1-4.56 1.1c-4.01 0-6.83-2.5-6.83-7.48 0-4.19 2.39-7.52 6.3-7.52 3.92 0 5.96 3.28 5.96 7.5 0 .4-.04 1.26-.06 1.48zm-5.92-5.62c-1.03 0-2.17.73-2.17 2.58h4.25c0-1.85-1.07-2.58-2.08-2.58zM40.95 20.3c-1.44 0-2.32-.6-2.9-1.04l-.02 4.63-4.12.87V5.57h3.76l.08 1.02a4.7 4.7 0 0 1 3.23-1.29c2.9 0 5.62 2.6 5.62 7.4 0 5.23-2.7 7.6-5.65 7.6zM40 8.95c-.95 0-1.54.34-1.97.81l.02 6.12c.4.44.98.78 1.95.78 1.52 0 2.54-1.65 2.54-3.87 0-2.15-1.04-3.84-2.54-3.84zM28.24 5.57h4.13v14.44h-4.13V5.57zm0-4.7L32.37 0v3.36l-4.13.88V.88zm-4.32 9.35v9.79H19.8V5.57h3.7l.12 1.22c1-1.77 3.07-1.41 3.62-1.22v3.79c-.52-.17-2.29-.43-3.32.86zm-8.55 4.72c0 2.43 2.6 1.68 3.12 1.46v3.36c-.55.3-1.54.54-2.89.54a4.15 4.15 0 0 1-4.27-4.24l.01-13.17 4.02-.86v3.54h3.14V9.1h-3.13v5.85zm-4.91.7c0 2.97-2.31 4.66-5.73 4.66a11.2 11.2 0 0 1-4.46-.93v-3.93c1.38.75 3.1 1.31 4.46 1.31.92 0 1.53-.24 1.53-1C6.26 13.77 0 14.51 0 9.95 0 7.04 2.28 5.3 5.62 5.3c1.36 0 2.72.2 4.09.75v3.88a9.23 9.23 0 0 0-4.1-1.06c-.86 0-1.44.25-1.44.9 0 1.85 6.29.97 6.29 5.88z" fill-rule="evenodd"/></svg>
+
+                </a>
+                <button class="navbar-toggler collapsed btn custom-btn" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg class="menu-icon" data-name="icons/tabler/hamburger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+                    <rect data-name="Icons/Tabler/Hamburger background" width="16" height="16" fill="none"></rect>
+                    <path d="M15.314,8H.686A.661.661,0,0,1,0,7.368a.653.653,0,0,1,.593-.625l.093-.006H15.314A.661.661,0,0,1,16,7.368a.653.653,0,0,1-.593.626Zm0-6.737H.686A.661.661,0,0,1,0,.632.654.654,0,0,1,.593.005L.686,0H15.314A.661.661,0,0,1,16,.632a.653.653,0,0,1-.593.625Z" transform="translate(0 4)" fill="#FFF"></path>
+                    </svg>
+                    <svg class="menu-close" data-name="icons/tabler/close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
+                    <rect data-name="Icons/Tabler/Close background" width="16" height="16" fill="none"></rect>
+                    <path d="M.82.1l.058.05L6,5.272,11.122.151A.514.514,0,0,1,11.9.82l-.05.058L6.728,6l5.122,5.122a.514.514,0,0,1-.67.777l-.058-.05L6,6.728.878,11.849A.514.514,0,0,1,.1,11.18l.05-.058L5.272,6,.151.878A.514.514,0,0,1,.75.057Z" transform="translate(2 2)" fill="#1e1e1e"></path>
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item dropdown horizontal-menu">
+                            <a class="nav-link active" href="#" role="button" id="landing" data-toggle="dropdown" aria-expanded="false">
+                                Landing
+                            </a>
+                            <ul class="dropdown-menu shadow-lg" aria-labelledby="single">
+                            <li>
+                                <ul>
+                                <li><a class="dropdown-item" href="../templates/saas-style-one.html">Saas style one</a></li>
+                                <li><a class="dropdown-item" href="../templates/saas-style-two.html">Saas style two</a></li>
+                                <li><a class="dropdown-item" href="../templates/saas-style-three.html">Saas style three</a></li>
+                                <li><a class="dropdown-item" href="../templates/dashboard.html">Dashboard light</a></li>
+                                <li><a class="dropdown-item" href="../templates/dashboard-dark.html">Dashboard dark</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                <li><a class="dropdown-item" href="../templates/education.html">Education <span class="badge badge-primary fs-11 py-1 px-2 ml-1 rounded text-uppercase">New</span></a></li>
+                                <li><a class="dropdown-item" href="../templates/portfolio.html">Portfolio</a></li>
+                                <li><a class="dropdown-item" href="../templates/travel.html">Travel</a></li>
+                                <li><a class="dropdown-item" href="../templates/agency.html">Agency</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                <li><a class="dropdown-item" href="../templates/studio.html">Studio</a></li>
+                                <li><a class="dropdown-item" href="../templates/ecommerce.html">Ecommerce</a></li>
+                                <li><a class="dropdown-item" href="../templates/clinic.html">Clinic</a></li>
+                                <li><a class="dropdown-item" href="../templates/magazine.html">News</a></li>
+                                </ul>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown horizontal-menu">
+                            <a class="nav-link" href="#" role="button" id="single" data-toggle="dropdown" aria-expanded="false">Pages</a>
+                            <ul class="dropdown-menu shadow-lg" aria-labelledby="single">
+                            <li>
+                                <small class="d-block">Jobs</small>
+                                <ul>
+                                <li><a class="dropdown-item" href="../pages/job-opening.html">Opening</a></li>
+                                <li><a class="dropdown-item" href="../pages/job-listing.html">Listing</a></li>
+                                </ul>
+                                <small class="d-block">Misc</small>
+                                <ul>
+                                <li><a class="dropdown-item" href="../pages/404.html">404</a></li>
+                                <li><a class="dropdown-item" href="../pages/coming-soon.html">Coming soon</a></li>
+                                <li><a class="dropdown-item" href="../pages/maintenance.html">Maintenance</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <small class="d-block">Company</small>
+                                <ul>
+                                <li><a class="dropdown-item" href="../pages/help-center.html">Help Center</a></li>
+                                <li><a class="dropdown-item" href="../pages/pricing.html">Pricing</a></li>
+                                <li><a class="dropdown-item" href="../pages/about-style1.html">About <span class="badge badge-primary fs-11 py-1 px-2 ml-1 rounded text-uppercase">New</span></a></li>
+                                <li><a class="dropdown-item" href="../pages/contact.html">Contact</a></li>
+                                <li><a class="dropdown-item" href="../pages/legal.html">Legal</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <small class="d-block">Account</small>
+                                <ul>
+                                <li><a class="dropdown-item" href="../pages/account-profile.html">General</a></li>
+                                <li><a class="dropdown-item" href="../pages/account-payment.html">Payments</a></li>
+                                <li><a class="dropdown-item" href="../pages/account-friends.html">Friends</a></li>
+                                <li><a class="dropdown-item" href="../pages/account-security.html">Security</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <small class="d-block">Login</small>
+                                <ul>
+                                <li><a class="dropdown-item" href="../pages/login.html">Cover</a></li>
+                                <li><a class="dropdown-item" href="../pages/login-simple.html">Simple</a></li>
+                                </ul>
+                                <small class="d-block">Gallery</small>
+                                <ul>
+                                <li><a class="dropdown-item" href="../pages/gallery-mansorny.html">Mansorny</a></li>
+                                <li><a class="dropdown-item" href="../pages/grid-gallery.html">Grid</a></li>
+                                </ul>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" id="dashboard" data-toggle="dropdown" aria-expanded="false">Blog</a>
+                            <ul class="dropdown-menu shadow-lg" aria-labelledby="dashboard">
+                            <li><a class="dropdown-item" href="../blog/blog-home1.html">Home full width</a></li>
+                            <li><a class="dropdown-item" href="../blog/blog-home2.html">Home sidebar <span class="badge badge-primary fs-11 py-1 px-2 ml-1 rounded text-uppercase">New</span></a></li>
+                            <li><a class="dropdown-item" href="../blog/blog-post-sidebar.html">Article full width</a></li>
+                            <li><a class="dropdown-item" href="../blog/blog-post.html">Article sidebar</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" id="docs" data-toggle="dropdown" aria-expanded="false">Docs</a>
+                            <ul class="dropdown-menu shadow-lg" aria-labelledby="docs">
+                            <li><a class="dropdown-item" href="../documentation/index.html">Documentation</a></li>
+                            <li><a class="dropdown-item" href="#">Snippets <span class="badge badge-primary fs-11 py-1 px-2 ml-1 rounded text-uppercase">Build</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <btn href="#" class="btn py-0 custom-btn">Sign in ></btn>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <section class="main">
+        <div class="row mt-5">
+            <div class="col-md-6 d-flex align-items-center">
+                <div>
+                    <div class="ms-20">
+                        <h2 class="display-3">Payments Infrastructure for the internet</h2>
+                        <p>Millions of companies of all sizes—from startups to Fortune 500s—use Stripe's software and APIs to accept payments, send payouts, and manage their businesses online.</p>
+                        <div class="d-flex">
+                            <button class="btn custom-btn btn-dark">Start now ></button>
+                            <button class="btn custom-btn">Contact Sales ></button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <img src="phone.png">
+            </div>
+        </div>
+    </section>
+
+<!-- Muse Javascript Plugins -->
+<script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/lodash/lodash.min.js"></script>
+<script src="assets/vendor/highcharts/highmaps.js"></script>
+<script src="assets/vendor/highcharts/modules/data.js"></script>
+<script src="assets/vendor/highcharts/mapdata/countries/us/us-all.js"></script>
+<script src="assets/vendor/plyr/dist/plyr.polyfilled.min.js"></script>
+<script src="assets/vendor/choices-master/public/assets/scripts/choices.min.js"></script>
+<script src="assets/vendor/flatpickr/dist/flatpickr.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/progressbar/dist/progressbar.min.js"></script>
+<script src="assets/vendor/dropzone/dist/min/dropzone.min.js"></script>
+<script src="assets/vendor/simplebar/dist/simplebar.min.js"></script>
+<script src="assets/vendor/purecounterjs/dist/purecounter.js"></script>
+<script src="assets/vendor/prism/prism.js"></script>
+<script src="assets/js/theme-custom.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+    function random_rgba() {
+        var o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+    }
+
+    function canvasImage(){
+        $("#canvas").attr("width", $(window).width());
+        $("#canvas").attr("height", $(window).height());
+        start_height = ($("section").height()/1.5 + $("header").height());
+        end_height = ($("section").height()/4 + $("header").height());
+        end_width = $(window).width();
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0, start_height);
+        ctx.lineTo(end_width, end_height);
+        ctx.lineTo(end_width, 0);
+        ctx.lineTo(0, 0);
+        ctx.lineTo(0, start_height);
+        ctx.strokeStyle = "#FFF";
+        ctx.stroke();
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+        function colorChange() {
+            // var color = random_rgba();
+            var color1 = '#' + (Math.random()*0xFFFFFF|0).toString(16);
+            var color2 = '#' + (Math.random()*0xFFFFFF|0).toString(16);
+            grad = ctx.createLinearGradient(0, 0, end_width, end_height);
+            grad.addColorStop(0, color1);
+            grad.addColorStop(1, color2);
+            ctx.fillStyle = grad;
+            ctx.fill();
+        }
+        setInterval(function() {
+            colorChange()
+        } , 2000);
+        
+        // var imageObj = new Image();
+        // imageObj.onload = function() {
+        //     var pattern = ctx.createPattern(imageObj, 'repeat');
+        //     ctx.fillStyle = pattern;
+        //     ctx.fill();
+        // };
+        // imageObj.src = 'bg.png';
+    }
+    $(document).ready(function(){
+        canvasImage();
+    })
+    $(window).resize(function(){
+        canvasImage();
+    })
+    
+</script>
+</body>
+</html>

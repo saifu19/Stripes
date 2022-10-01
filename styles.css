@@ -1,0 +1,31 @@
+body {
+    overflow-x: hidden;
+}
+.custom-btn {
+    padding: 0 16px;
+    border-radius: 16.5px;
+}
+.navbar a, .navbar .btn {
+    color: white;
+}
+.navbar .custom-btn {
+    background-color: rgba(226, 226, 226, 0.5);
+}
+.ms-5 {
+    margin-left: 3rem !important;
+}
+.me-5 {
+    margin-right: 3rem !important;
+}
+.ms-20 {
+    margin-left: 20%;
+}
+#canvas {
+    position: absolute;
+    z-index: -1;
+    transition: all 1s;
+}
+.main {
+    background-color: transparent !important;
+    z-index: 999 !important;
+}
